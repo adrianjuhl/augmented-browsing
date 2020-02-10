@@ -2,7 +2,7 @@
 // @name         Gitlab augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.6
+// @version      0.1.7
 // @description  Add links to assist navigation to 'Personal projects' in gitlab.
 // @match        https://gitlab.adelaide.edu.au/*
 // @grant        none
@@ -19,7 +19,7 @@ jQuery(function(){
   // Add a link to 'Personal projects' to the top header
   var using_new_navigation = jQuery("div.title-container ul.navbar-sub-nav").length;
   if (using_new_navigation) {
-    jQuery("div.title-container ul.navbar-sub-nav").append("<li class=\"\"><a href=\"/users/" + username + "/projects\">Personal X15 projects</a></li>");
+    jQuery("div.title-container ul.navbar-sub-nav").append("<li class=\"\"><a href=\"/users/" + username + "/projects\">Personal projects</a></li>");
   } else {
     jQuery("div.title-container").append("<h1 class=\"title\"><a href=\"/users/" + username + "/projects\">Personal projects</a></h1>");
   }
