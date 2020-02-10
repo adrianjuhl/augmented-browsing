@@ -1,10 +1,15 @@
 # augmented-browsing
 
+Scripts that improve the usability of various websites.
+
+* [Gitlab - adds a link to your personal projects](https://github.com/adrianjuhl/augmented-browsing/raw/master/gitlab.user.js)
+* [Openshift - adds filtering to the pipelines page](https://github.com/adrianjuhl/augmented-browsing/raw/master/openshift.user.js)
+
 ## Installing a script in Tampermonkey
 To install the script in the browser:
 * Browse to the augmented-browsing repo and choose the master branch
 * Click on the *.user.js file
-* Click on the 'Open Raw' button
+* Click on the 'Open Raw' button (the above links point to the raw file)
 * Click on the 'Install button' in the Tampermonkey page
 
 ## Development of scripts
