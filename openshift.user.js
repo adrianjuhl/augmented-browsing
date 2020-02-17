@@ -65,3 +65,7 @@ function addPipelinesNameFilterElements() {
     );
   }
 }
+
+function stylePipelineElements() {
+  jQuery("body").css("backgrount-color", "yellow");
+}
