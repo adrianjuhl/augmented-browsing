@@ -2,7 +2,7 @@
 // @name         Openshift Web Console augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.4
+// @version      0.1.9
 // @description  Adds a text field to the Pipelines page that filters the pipelines to those whose name contains the given text.
 // @match        https://rhos-console.services.adelaide.edu.au:8443/*
 // @match        https://rhosd-console.services.adelaide.edu.au:8443/*
@@ -13,6 +13,8 @@
 // ==/UserScript==
 
 'use strict';
+
+stylePipelineElements();
 
 jQuery(async function(){
   var windowsLocationPathname = window.location.pathname;
@@ -62,4 +64,30 @@ function addPipelinesNameFilterElements() {
       })
     );
   }
+}
+
+function stylePipelineElements() {
+  changeCss('.pipeline .pipeline-stage', 'width: 150px; padding: 5px;');
+  changeCss('.pipeline .pipeline-stage:before', 'right: -11px; top: 28px;');
+  changeCss('.pipeline .pipeline-stage-name', 'white-space: normal; text-align: left; height: 38px; margin-bottom: 0px; background-color: #f0f8ff;');
+  changeCss('.pipeline-time', 'margin-top: 0px; background-color: #f0f8ff;');
+  changeCss('.pipeline-status-bar', 'align-items: flex-end;');
+}
+
+function changeCss(className, classValue) {
+  // An invisible container to store additional css definitions ...
+  var cssMainContainer = $('#css-modifier-container');
+  if(cssMainContainer.length == 0) {
+    cssMainContainer = $('<div id="css-modifier-container"></div>');
+    cssMainContainer.hide();
+    cssMainContainer.appendTo($('body'));
+  }
+  // ... and one div for each class ...
+  var classContainer = cssMainContainer.find('div[data-class="' + className + '"]');
+  if(classContainer.length == 0) {
+      classContainer = $('<div data-class="' + className + '"></div>');
+      classContainer.appendTo(cssMainContainer);
+  }
+  // ... to append additional style.
+  classContainer.html('<style>' + className + ' {' + classValue + '}</style>');
 }
