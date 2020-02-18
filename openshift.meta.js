@@ -2,7 +2,7 @@
 // @name         Openshift Web Console augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.5
+// @version      0.1.6
 // @description  Adds a text field to the Pipelines page that filters the pipelines to those whose name contains the given text.
 // @match        https://rhos-console.services.adelaide.edu.au:8443/*
 // @match        https://rhosd-console.services.adelaide.edu.au:8443/*
