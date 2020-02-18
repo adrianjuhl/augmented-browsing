@@ -72,7 +72,7 @@ function stylePipelineElements() {
   changeCss('.pipeline .pipeline-stage', 'width: 150px; padding: 5px;');
   changeCss('.pipeline .pipeline-stage:before', 'right: -11px; top: 28px;');
   changeCss('.pipeline .pipeline-stage-name', 'white-space: normal; text-align: left; height: 38px; margin-bottom: 0px; background-color: #f0fff0;');
-  changeCss('.pipeline-time', 'margin-top: 0px;');
+  changeCss('.pipeline-time', 'margin-top: 0px; background-color: #f0fff0;');
   changeCss('.pipeline-status-bar', 'align-items: flex-end;');
 }
 
