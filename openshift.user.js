@@ -2,7 +2,7 @@
 // @name         Openshift Web Console augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.7
+// @version      0.1.8
 // @description  Adds a text field to the Pipelines page that filters the pipelines to those whose name contains the given text.
 // @match        https://rhos-console.services.adelaide.edu.au:8443/*
 // @match        https://rhosd-console.services.adelaide.edu.au:8443/*
@@ -71,8 +71,8 @@ function addPipelinesNameFilterElements() {
 function stylePipelineElements() {
   changeCss('.pipeline .pipeline-stage', 'width: 150px; padding: 5px;');
   changeCss('.pipeline .pipeline-stage:before', 'right: -11px; top: 28px;');
-  changeCss('.pipeline .pipeline-stage-name', 'white-space: normal; text-align: left; height: 38px; margin-bottom: 0px; background-color: #f0fff0;');
-  changeCss('.pipeline-time', 'margin-top: 0px; background-color: #f0fff0;');
+  changeCss('.pipeline .pipeline-stage-name', 'white-space: normal; text-align: left; height: 38px; margin-bottom: 0px; background-color: #f0f8ff;');
+  changeCss('.pipeline-time', 'margin-top: 0px; background-color: #f0f8ff;');
   changeCss('.pipeline-status-bar', 'align-items: flex-end;');
 }
 
