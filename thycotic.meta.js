@@ -2,7 +2,7 @@
 // @name         Thycotic augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.1
+// @version      0.1.2
 // @description  Right aligns the Show/Hide password link.
 // @match        https://thycotic.ad.adelaide.edu.au/*
 // @grant        none

@@ -2,7 +2,7 @@
 // @name         Thycotic augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.1
+// @version      0.1.2
 // @description  Right aligns the Show/Hide password link.
 // @match        https://thycotic.ad.adelaide.edu.au/*
 // @grant        none
@@ -17,28 +17,28 @@ var passwordElementSelector = "#nav > div.right > div > div > ss-root > ss-secre
 var passwordShowHideElementSelector = passwordElementSelector + " > div.ng-star-inserted > div > a";
 
 var stylePasswordShowHideElement = function() {
-  jQuery(passwordElementSelector).css('width', '-webkit-fill-available');
-  jQuery(passwordShowHideElementSelector).css('float', 'right');
+  changeCss(passwordElementSelector, 'width: -webkit-fill-available;');
+  changeCss(passwordShowHideElementSelector, 'float: right;');
 }
 
-waitForElementToExist(passwordShowHideElementSelector, stylePasswordShowHideElement, 100);
-
-/**
- * Wait for the specified element to appear in the DOM. When the element appears, provide it to the callback.
- *
- * @param elementSelector the selector for the element (eg, 'div.container img')
- * @param callback function that takes selected element (null if timeout)
- * @param maxTries number of times to try (return null after maxTries, false to disable, if 0 will still try once)
- * @param interval milliseconds to wait between each try
- */
-function waitForElementToExist(elementSelector, callback, maxTries = false, interval = 100) {
-  const elementPoller = setInterval(() => {
-    const element = jQuery(elementSelector);
-    const retry = maxTries === false || maxTries-- > 0
-    if (retry && element.length < 1) {
-      return; // try again
-    }
-    clearInterval(elementPoller)
-    callback(element || null)
-  }, interval)
+function changeCss(className, classValue) {
+  // An invisible container to store additional css definitions ...
+  var cssMainContainer = $('#css-modifier-container');
+  if(cssMainContainer.length == 0) {
+    cssMainContainer = $('<div id="css-modifier-container"></div>');
+    cssMainContainer.hide();
+    cssMainContainer.appendTo($('body'));
+  }
+  // ... and one div for each class ...
+  var classContainer = cssMainContainer.find('div[data-class="' + className + '"]');
+  if(classContainer.length == 0) {
+      classContainer = $('<div data-class="' + className + '"></div>');
+      classContainer.appendTo(cssMainContainer);
+  }
+  // ... to append additional style.
+  classContainer.html('<style>' + className + ' {' + classValue + '}</style>');
 }
+
+jQuery(function() {
+  stylePasswordShowHideElement();
+});
