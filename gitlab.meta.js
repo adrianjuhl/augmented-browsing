@@ -2,7 +2,7 @@
 // @name         Gitlab augmentation
 // @author       Adrian Juhl
 // @namespace    https://github.com/adrianjuhl
-// @version      0.1.7
+// @version      0.1.8
 // @description  Add links to assist navigation to 'Personal projects' in gitlab.
 // @match        https://gitlab.adelaide.edu.au/*
 // @grant        none
